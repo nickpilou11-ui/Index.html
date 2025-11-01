@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌞 Bonne humeur du jour 🌞</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+    p {
+      font-size: 1.5em;
+      max-width: 600px;
+      line-height: 1.4;
+    }
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.8em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>✨ Message positif ✨</h1>
+  <p id="phrase"></p>
+  <div class="footer">Recharge la page pour un nouveau sourire 😄</div>
+
+  <script>
+    const phrases = [
+      "Tu es une belle personne, ne l’oublie jamais 💛",
+      "Chaque jour est une nouvelle chance de briller 🌞",
+      "Ton sourire peut illuminer la journée de quelqu’un 😄",
+      "Tu fais une différence, même sans t’en rendre compte 💫",
+      "Respire, tout ira bien 🌿",
+      "Tu as déjà accompli tant de belles choses 💪",
+      "Ta bonne humeur est contagieuse 😍",
+      "Aujourd’hui est une journée parfaite pour être heureux ☀️",
+      "Continue d’avancer, un pas à la fois 🚶",
+      "Tu es plus fort(e) que tu ne le penses 💥",
+      "Ta présence rend ce lieu meilleur 🌷",
+      "Fais-toi confiance, tu as tout ce qu’il faut 💎",
+      "Le positif attire le positif ✨",
+      "Un petit geste de gentillesse change tout 💖",
+      "Tu as le droit de te reposer, c’est aussi ça le succès 🌙",
+      "Tu es une source d’énergie pour ton équipe ⚡",
+      "Chaque effort compte, même les plus petits 👣",
+      "Le sourire te va si bien 😁",
+      "Tu es exactement à ta place 🌸",
+      "Aujourd’hui, choisis la joie 🌈",
+      "Ton travail est précieux, merci pour tout 🙏",
+      "Tu as une belle lumière intérieure 🌟",
+      "Tu mérites tout ce qu’il y a de meilleur 💐",
+      "Les défis d’aujourd’hui sont les réussites de demain 🚀",
+      "Tu fais du bon travail, continue comme ça 👏",
+      "Le bonheur, c’est aussi simple qu’un sourire 😊",
+      "Tu es une source d’inspiration pour les autres 💡",
+      "Rien n’est impossible pour un cœur courageux ❤️",
+      "Tu es unique et c’est ta plus grande force 🌻",
+      "Une journée sans rire est une journée perdue 😆",
+      "La bienveillance est ta super-puissance 💫",
+      "Tu es capable de grandes choses 🌠",
+      "Fais-toi confiance, tu avances dans la bonne direction 🧭",
+      "Tu rends cette équipe plus belle 💼💛",
+      "Garde ton enthousiasme, il est précieux 🎈",
+      "Tu fais du bien autour de toi 🌼",
+      "Chaque sourire partagé multiplie le bonheur 😄",
+      "Tu es la preuve que la gentillesse existe 🌹",
+      "Tu es important(e), ne l’oublie jamais 🌟",
+      "Crois en toi, tu es sur la bonne voie 🛤️",
+      "Tu as déjà parcouru tant de chemin 💫",
+      "Tu as le droit d’être fier(e) de toi 🎉",
+      "Ton attitude positive fait la différence 😇",
+      "Le monde a besoin de personnes comme toi 🌍",
+      "Tu transformes les obstacles en opportunités 💪",
+      "Chaque jour, tu deviens une meilleure version de toi-même 🌱",
+      "Tu es un(e) collègue en or 🏅",
+      "Merci d’apporter de la bonne humeur dans l’équipe 💕",
+      "Tu peux être fier(e) de ce que tu accomplis 👌",
+      "Ta gentillesse rend le monde plus doux 🍀",
+      "Continue d’être toi, c’est déjà beaucoup 💖",
+      "Ton optimisme est un rayon de soleil ☀️",
+      "La réussite commence par un bon état d’esprit 🌈",
+      "Aujourd’hui est une belle journée pour sourire 😃",
+      "Le bonheur se cultive, et tu es un excellent jardinier 🌻",
+      "Tu fais de ton mieux, et c’est déjà formidable 💪",
+      "Tu mérites d’être heureux(se) 🥰",
+      "Chaque instant est une occasion d’être reconnaissant 🙏",
+      "Tu inspires confiance et sérénité 🌼",
+      "Ton énergie positive est un cadeau pour les autres 🎁",
+      "Ne doute jamais de ta valeur 💎",
+      "Tu es un(e) champion(ne) du quotidien 🏆",
+      "Le monde est plus beau grâce à des gens comme toi 💫",
+      "Ton travail compte vraiment 👏",
+      "Un sourire ne coûte rien mais change tout 😊",
+      "Tu peux être fier(e) de qui tu es 🌟",
+      "Chaque journée est une nouvelle page à écrire 📖",
+      "Tu es un rayon de soleil pour ton entourage 🌞",
+      "Le courage, c’est toi 💪",
+      "Merci d’être là, tout simplement 💛",
+      "Ta bonne humeur est une vraie force 🌈",
+      "Tu apportes une belle énergie autour de toi 🔆",
+      "Continue de semer du positif 🌻",
+      "Tu rends chaque jour un peu plus lumineux ☀️",
+      "Ton sourire est ta meilleure signature 😄",
+      "Tu es une belle âme 💖",
+      "Aujourd’hui, choisis de te sentir bien 🌿",
+      "Tu es plein(e) de ressources, ne l’oublie pas 💫",
+      "Ton travail a de l’impact 🌍",
+      "Chaque petit succès mérite d’être célébré 🎉",
+      "Tu es une personne formidable 🌸",
+      "Tu embellis la journée de ceux que tu croises 🌞",
+      "Merci pour ta bonne humeur et ton sourire 💕",
+      "Tu es un exemple de positivité ✨",
+      "Rien ne peut arrêter quelqu’un qui croit en lui 💪",
+      "Tu rends ton équipe meilleure 💼💫",
+      "Tu es courageux(se) et persévérant(e) 💥",
+      "Chaque jour apporte sa petite victoire 🏅",
+      "Tu mérites de prendre soin de toi 🌷",
+      "Tu es la preuve que la gentillesse existe encore 🌸",
+      "Ta présence met du baume au cœur 💛",
+      "Tu fais de ce lieu un endroit agréable 🌼",
+      "Tu as une belle énergie, garde-la précieusement ⚡",
+      "Aujourd’hui est un bon jour pour sourire 😊",
+      "Ton enthousiasme fait plaisir à voir 🌈",
+      "Tu rends le travail plus humain 💖",
+      "Merci pour ta belle énergie 🌟",
+      "Tu es un cadeau pour ton équipe 🎁",
+      "Continue de croire en toi, le meilleur est à venir 🌠",
+      "Tu es un rayon de soleil pour ta journée 🌞",
+      "Le bonheur te va si bien 😄"
+    ];
+
+    document.getElementById("phrase").innerText =
+      phrases[Math.floor(Math.random() * phrases.length)];
+  </script>
+</body>
+</html>
