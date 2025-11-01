@@ -1,2 +1,100 @@
 # Index.html
 Bonne humeur
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Phrases Positives</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: sans-serif;
+            text-align: center;
+            background: #f0f8ff;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2em;
+            color: #333;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 10px;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 id="phrase"></h1>
+        <button onclick="nouvellePhrase()">Nouvelle phrase</button>
+    </div>
+
+    <script>
+        const phrases = [
+            "Tu es incroyable !", "Souris, la vie est belle !", "Chaque jour est une nouvelle opportunité !",
+            "Reste positif, tout ira bien !", "Tu es capable de tout !", "La joie est en toi !", 
+            "Chaque effort compte !", "Tu mérites le meilleur !", "Ta créativité est sans limite !", 
+            "Le meilleur reste à venir !", "Tu es une source d’inspiration !", "Tu es fort(e) !", 
+            "Chaque jour est une victoire !", "Ton sourire change le monde !", "Tu peux tout accomplir !", 
+            "Tu es unique et précieux(se) !", "Garde confiance en toi !", "Chaque pas compte !", 
+            "La vie t’apporte de belles surprises !", "Ton énergie est contagieuse !", 
+            "Tu es aimé(e) et apprécié(e) !", "Tu fais une différence !", "Ton courage est admirable !",
+            "Chaque défi est une opportunité !", "Ta gentillesse illumine le monde !", 
+            "Tu es digne de succès !", "Ta positivité inspire les autres !", "Continue d’avancer !", 
+            "Chaque instant est précieux !", "Tu es en train de grandir chaque jour !", 
+            "Ta présence est précieuse !", "Rêve grand et ose !", "La vie est belle grâce à toi !", 
+            "Tu es talentueux(se) !", "Ton potentiel est illimité !", "Tu es digne de bonheur !", 
+            "La confiance en toi te guidera !", "Tu es une lumière pour les autres !", 
+            "Tes efforts portent leurs fruits !", "Tu es incroyable tel(le) que tu es !", 
+            "Ta résilience est impressionnante !", "Chaque jour apporte une nouvelle chance !", 
+            "Tu es une force de la nature !", "Ton sourire fait des miracles !", 
+            "Tu es maître de ton destin !", "Ta bienveillance est ton super pouvoir !", 
+            "Tout est possible pour toi !", "Tu es brillant(e) !", "Garde la tête haute !", 
+            "Ton bonheur est important !", "Tu es capable de grandes choses !", "Rien ne peut t’arrêter !", 
+            "Chaque jour est une bénédiction !", "Tu es magnifique !", "Le monde a besoin de toi !", 
+            "Tu es courageux(se) !", "Tu es unique !", "La réussite t’attend !", "Ton enthousiasme est contagieux !", 
+            "Tu es précieux(se) !", "Ta lumière intérieure brille !", "Tu es fort(e) mentalement et émotionnellement !", 
+            "Chaque sourire compte !", "Tu es un exemple pour les autres !", "Tu es audacieux(se) !", 
+            "Tu es une source de bonheur !", "Ton cœur est rempli de courage !", "Tu es remarquable !", 
+            "Chaque instant est un cadeau !", "Tu es inspirant(e) !", "Ton énergie est magnifique !", 
+            "Tu es capable de transformer ta vie !", "Rien n’est impossible pour toi !", "Tu es digne d’amour !", 
+            "Ta persévérance paie !", "Tu es une bénédiction pour le monde !", "Chaque jour est une aventure !", 
+            "Tu es brillant(e) dans tout ce que tu fais !", "Tu es une force tranquille !", 
+            "Tu es capable de surmonter n’importe quoi !", "Ton esprit est puissant !", 
+            "Tu es lumineux(se) !", "Ton courage inspire les autres !", "Chaque étape compte !", 
+            "Tu es un créateur de bonheur !", "Tu es digne de succès et de joie !", 
+            "Ta passion change le monde !", "Tu es un miracle en action !", 
+            "Chaque jour est une nouvelle opportunité pour toi !", "Tu es incroyable et unique !", 
+            "Ta force intérieure est immense !", "Tu es un champion(ne) dans la vie !", 
+            "Rien ne peut freiner ton énergie !", "Tu es aimé(e) et admiré(e) !", 
+            "Tu es la meilleure version de toi-même !", "Ta positivité attire la réussite !", 
+            "Chaque pas te rapproche de tes rêves !", "Tu es un être extraordinaire !", 
+            "Ta lumière illumine ceux qui t’entourent !", "Tu es capable de réaliser des miracles !", 
+            "Chaque jour t’apporte des opportunités incroyables !", "Tu es puissant(e) et inspirant(e) !", 
+            "Ton sourire illumine le monde !", "Tu es digne de bonheur et de succès !", 
+            "Tu es une source d’amour et de joie !", "Chaque jour est ton jour !", 
+            "Tu es incroyable dans tout ce que tu fais !", "Ta confiance te mène loin !"
+        ];
+
+        function nouvellePhrase() {
+            const randomIndex = Math.floor(Math.random() * phrases.length);
+            document.getElementById("phrase").innerText = phrases[randomIndex];
+        }
+
+        // Afficher une phrase au chargement
+        nouvellePhrase();
+    </script>
+</body>
+</html>
